@@ -14,11 +14,11 @@ class FoldersTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('folders')->insert([
-            'id' => 3,
-            'fk_folder' => 1,
+            'id' => 1,
+            'fk_folder' => null,
             'fk_user' => 1,
-            'name' => 'LPJ/PTP',
-            'comment' => 'Pelabuhan Tanjung Pelepas',
+            'name' => 'LPJ',
+            'comment' => 'DMS Root',
             'defaultAccess' => '0',
             'created_at' => now(),
             'updated_at' => now(),

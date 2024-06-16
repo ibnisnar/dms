@@ -11,11 +11,12 @@ class AddFolder extends Component
     public $folderid;
     public $name;
     public $comment;
-    public $defaultAccess = '0';
+    public $selectedFolder;
 
     public function mount()
     {
         $this->folderid = request()->query('folderid');
+        $this->selectedFolder = Folder::where('id', $this->folderid)->first();
     }
 
     public function addFolder()
@@ -24,7 +25,6 @@ class AddFolder extends Component
         $this->validate([
             'name' => 'required|string|max:255',
             'comment' => 'nullable|string|max:255',
-            'defaultAccess' => 'required|string|in:0,1,2,3',
         ]);
 
         // Create the folder
@@ -33,14 +33,13 @@ class AddFolder extends Component
             'fk_user' => Auth::id(),
             'name' => $this->name,
             'comment' => $this->comment,
-            'defaultAccess' => $this->defaultAccess,
         ]);
 
-        return redirect()->route('view-folder')->with('message', 'Folder added successfully');
+        return redirect()->route('view-folder', ['folderid' => $this->folderid])->with('message', 'Folder added successfully');
     }
 
     public function render()
     {
-        return view('livewire.folder.add-folder', ['folderid' => $this->folderid])->layout('layouts.app');
+        return view('livewire.folder.add-folder', ['folderid' => $this->folderid, 'selectedFolder' => $this->selectedFolder])->layout('layouts.app');
     }
 }

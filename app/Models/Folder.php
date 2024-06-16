@@ -33,4 +33,82 @@ class Folder extends Model
     {
         return $this->hasMany(Folder::class, 'fk_folder');
     }
+
+    /**
+     * Get the parent folders.
+     */
+    public function parent()
+    {
+        return $this->belongsTo(Folder::class, 'fk_folder');
+    }
+
+    /**
+     * Get all parent folders recursively.
+     */
+    public function parents()
+    {
+        $parents = collect([]);
+        $folder = $this;
+
+        while ($folder) {
+            $parents->prepend($folder);
+            $folder = Folder::find($folder->fk_folder);
+        }
+
+        return $parents;
+    }
+
+    /**
+     * Get Folder Tree Structure
+     */
+    public static function tree()
+    {
+        $allFolders = Folder::get();
+
+        $rootFolder = $allFolders->whereNull('fk_folder');
+
+        self::formatTree($rootFolder, $allFolders);
+
+        return $rootFolder;
+    }
+
+    public static function formatTree($folders, $allFolders){
+        foreach($folders as $folder){
+            $folder->children = $allFolders->where('fk_folder', $folder->id)->values();
+
+            if($folder->children->isNotEmpty()){
+                self::formatTree($folder->children, $allFolders);
+            }
+        }
+    }
+
+    /**
+     * Get Folder Header Links
+     */
+    public function getHeaderLinks()
+    {
+        return [
+            [
+                'text' => 'Add Subfolder',
+                'route' => route('add-folder', ['folderid' => $this->id]),
+            ],
+            [
+                'text' => 'Add Document',
+                'route' => route('add-document', ['folderid' => $this->id]),
+            ],
+            [
+                'text' => 'Edit Folder',
+                'route' => route('edit-folder', ['folderid' => $this->id]),
+            ],
+            [
+                'text' => 'Access Right',
+                'route' => route('access-right', ['folderid' => $this->id]),
+            ],
+            [
+                'text' => 'Notification List',
+                'route' => route('notify-list', ['folderid' => $this->id]),
+            ],
+        ];
+    }
+
 }

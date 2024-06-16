@@ -14,8 +14,8 @@ class ViewFolder extends Component
     public function mount()
     {
         $this->folderid = request()->query('folderid');
-        $this->homeFolder = Folder::whereNull('fk_folder')->first();
-        $this->selectedFolder = Folder::where('id', $this->folderid)->first();
+        $this->homeFolder = Folder::whereNull('fk_folder')->with('children')->first();
+        $this->selectedFolder = Folder::where('id', $this->folderid)->with('children')->first();
     }
 
     public function render()

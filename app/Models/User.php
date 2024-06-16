@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function inheritAccesses()
+    {
+        return $this->morphMany(InheritAccess::class, 'fk_user_or_group');
+    }
 }
