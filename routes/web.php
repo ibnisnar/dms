@@ -18,8 +18,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/addDocument', AddDocument::class)->name('add-document');
 });
 
-Route::view('/', 'welcome');
-
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
 //     ->name('dashboard');

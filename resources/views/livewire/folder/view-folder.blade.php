@@ -44,7 +44,7 @@
                                                     <div id="hs-basic-tree-collapse-{{ $folder->id }}" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-tree-heading-{{ $folder->id }}">
                                                         <div class="hs-accordion-group ps-7 relative before:absolute before:top-0 before:start-3 before:w-0.5 before:-ms-px before:h-full before:bg-gray-100 dark:before:bg-neutral-700">
                                                             @foreach($folder->children as $child)
-                                                                @include('livewire.folder.partials.tree', ['folder' => $child])
+                                                                <x-folder-tree :folder="$child"/>
                                                             @endforeach
                                                         </div>
                                                     </div>
@@ -275,7 +275,7 @@
                                                     <div id="hs-basic-tree-collapse-{{ $folder->id }}" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-tree-heading-{{ $folder->id }}">
                                                         <div class="hs-accordion-group ps-7 relative before:absolute before:top-0 before:start-3 before:w-0.5 before:-ms-px before:h-full before:bg-gray-100 dark:before:bg-neutral-700">
                                                             @foreach($folder->children as $child)
-                                                                @include('livewire.folder.partials.tree', ['folder' => $child])
+                                                                <x-folder-tree :folder="$child"/>
                                                             @endforeach
                                                         </div>
                                                     </div>
