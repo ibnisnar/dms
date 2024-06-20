@@ -5,8 +5,8 @@ namespace App\Livewire\Folder;
 use Livewire\Component;
 use App\Models\Folder;
 use App\Models\User;
-use App\Models\Groups;
-use App\Models\InheritAccess;
+// use App\Models\Groups;
+// use App\Models\InheritAccess;
 
 class AccessRight extends Component
 {
@@ -26,8 +26,6 @@ class AccessRight extends Component
         $this->folderid = request()->query('folderid');
         $this->selectedFolder = Folder::where('id', $this->folderid)->first();
         $this->users = User::all();
-        $this->groups = Groups::all();
-        $this->listAccess = InheritAccess::all();
     }
 
     public function setOwner()

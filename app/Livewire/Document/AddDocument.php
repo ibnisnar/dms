@@ -8,6 +8,6 @@ class AddDocument extends Component
 {
     public function render()
     {
-        return view('livewire.document.add-document');
+        return view('livewire.document.add-document')->layout('layouts.app');
     }
 }

@@ -1,5 +1,5 @@
 <x-slot name="header">
-    <x-folder-header :links="$selectedFolder->getHeaderLinks()"/>
+    <x-folder-header :folderid="$selectedFolder->id" :links="$selectedFolder->getHeaderLinks()"/>
 </x-slot>
 
 <div class="py-10">
