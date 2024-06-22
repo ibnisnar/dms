@@ -17,7 +17,7 @@
                                 <div class="hs-accordion-treeview-root">
                                     <div class="hs-accordion-group">
                                         @foreach($folderTree as $folder)
-                                            <div class="hs-accordion" id="hs-basic-tree-heading-{{ $folder->id }}">
+                                            <div class="hs-accordion active" id="hs-basic-tree-heading-{{ $folder->id }}">
                                                 <div class="hs-accordion-heading py-0.5 flex items-center gap-x-0.5 w-full">
                                                     <button class="hs-accordion-toggle size-6 flex justify-center items-center hover:bg-gray-100 rounded-md focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-controls="hs-basic-tree-collapse-{{ $folder->id }}">
                                                         <svg class="size-4 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -231,7 +231,7 @@
                                 <div class="hs-accordion-treeview-root">
                                     <div class="hs-accordion-group">
                                         @foreach($folderTree as $folder)
-                                            <div class="hs-accordion" id="hs-basic-tree-heading-{{ $folder->id }}">
+                                            <div class="hs-accordion active" id="hs-basic-tree-heading-{{ $folder->id }}">
                                                 <div class="hs-accordion-heading py-0.5 flex items-center gap-x-0.5 w-full">
                                                     <button class="hs-accordion-toggle size-6 flex justify-center items-center hover:bg-gray-100 rounded-md focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-controls="hs-basic-tree-collapse-{{ $folder->id }}">
                                                         <svg class="size-4 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
