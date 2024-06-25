@@ -40,3 +40,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const defaultSvg = document.getElementById('default-svg');
+    const hoverSvg = document.getElementById('hover-svg');
+
+    defaultSvg.addEventListener('mouseenter', () => {
+        defaultSvg.classList.add('hidden');
+        hoverSvg.classList.remove('hidden');
+    });
+
+    hoverSvg.addEventListener('mouseleave', () => {
+        hoverSvg.classList.add('hidden');
+        defaultSvg.classList.remove('hidden');
+    });
+});
+
+
+
+

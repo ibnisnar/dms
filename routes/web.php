@@ -7,6 +7,7 @@ use App\Livewire\Folder\EditFolder;
 use App\Livewire\Folder\AccessRight;
 use App\Livewire\Folder\NotifyList;
 use App\Livewire\Document\AddDocument;
+use App\Livewire\Document\ViewDocument;
 use App\Livewire\Admin\Tools;
 
 Route::middleware(['auth'])->prefix('folder')->group(function () {
@@ -15,8 +16,13 @@ Route::middleware(['auth'])->prefix('folder')->group(function () {
     Route::get('/edit', EditFolder::class)->name('edit-folder');
     Route::get('/access', AccessRight::class)->name('access-right');
     Route::get('/notify', NotifyList::class)->name('notify-list');
+    Route::get('/download', NotifyList::class)->name('download-folder');
+    Route::get('/move', NotifyList::class)->name('move-folder');
+    Route::get('/lock', NotifyList::class)->name('lock-folder');
+    Route::get('/delete', NotifyList::class)->name('delete-folder');
 });
 Route::middleware(['auth'])->prefix('document')->group(function () {
+    Route::get('/view', ViewDocument::class)->name('view-document');
     Route::get('/add', AddDocument::class)->name('add-document');
 });
 Route::middleware(['auth'])->prefix('admin')->group(function () {

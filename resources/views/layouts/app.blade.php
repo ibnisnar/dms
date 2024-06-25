@@ -47,7 +47,7 @@
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="py-4 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -58,5 +58,7 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     </body>
 </html>

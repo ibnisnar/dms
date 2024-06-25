@@ -27,6 +27,14 @@ class Folder extends Model
     }
 
     /**
+     * Get the document folders.
+     */
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'fk_folder');
+    }
+
+    /**
      * Get the children folders.
      */
     public function children()
@@ -108,7 +116,24 @@ class Folder extends Model
                 'text' => 'Notification List',
                 'route' => route('notify-list', ['folderid' => $this->id]),
             ],
+            [
+                'text' => 'Download Folder',
+                'route' => route('download-folder', ['folderid' => $this->id]),
+            ],
+            [
+                'text' => 'Move Folder',
+                'route' => route('move-folder', ['folderid' => $this->id]),
+            ],
+            [
+                'text' => 'Lock Folder',
+                'route' => route('lock-folder', ['folderid' => $this->id]),
+            ],
+            [
+                'text' => 'Delete Folder',
+                'route' => route('delete-folder', ['folderid' => $this->id]),
+            ],
         ];
     }
+
 
 }
