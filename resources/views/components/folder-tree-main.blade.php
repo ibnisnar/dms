@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+<div class="bg-white/30 backdrop-blur-sm dark:backdrop-blur-sm dark:bg-gray-800/80 overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 text-gray-900 dark:text-gray-100">
         <div>
             <div class="hs-accordion-treeview-root">
@@ -6,7 +6,7 @@
                     @foreach($folderTree as $folder)
                         <div class="hs-accordion active" id="hs-basic-tree-heading-{{ $folder->id }}">
                             <div class="hs-accordion-heading py-0.5 flex items-center gap-x-0.5 w-full">
-                                <button class="hs-accordion-toggle size-6 flex justify-center items-center hover:bg-gray-100 rounded-md focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-controls="hs-basic-tree-collapse-{{ $folder->id }}">
+                                <button class="hs-accordion-toggle size-6 flex justify-center items-center hover:bg-gray-100 rounded-md focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-neutral-700 dark:focus:bg-neutral-500" aria-controls="hs-basic-tree-collapse-{{ $folder->id }}">
                                     <svg class="size-4 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M5 12h14"></path>
                                         <path class="hs-accordion-active:hidden block" d="M12 5v14"></path>
@@ -29,7 +29,7 @@
 
                             @if($folder->children->isNotEmpty())
                                 <div id="hs-basic-tree-collapse-{{ $folder->id }}" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-tree-heading-{{ $folder->id }}">
-                                    <div class="hs-accordion-group ps-7 relative before:absolute before:top-0 before:start-3 before:w-0.5 before:-ms-px before:h-full before:bg-gray-100 dark:before:bg-neutral-700">
+                                    <div class="hs-accordion-group ps-7 relative before:absolute before:top-0 before:start-3 before:w-0.5 before:-ms-px before:h-full before:bg-gray-100 dark:before:bg-neutral-500">
                                         @foreach($folder->children as $child)
                                             <x-folder-tree :folder="$child"/>
                                         @endforeach

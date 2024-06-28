@@ -97,6 +97,10 @@ class Folder extends Model
     {
         return [
             [
+                'text' => 'Info',
+                'route' => route('add-folder', ['folderid' => $this->id]),
+            ],
+            [
                 'text' => 'Add Subfolder',
                 'route' => route('add-folder', ['folderid' => $this->id]),
             ],
